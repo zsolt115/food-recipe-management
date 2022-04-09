@@ -6,6 +6,9 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AppRoutingModule } from './app-routing.module';
+import { CreateNewRecipeComponent } from './create-new-recipe/create-new-recipe.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +16,13 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
     HeaderComponent,
     LoginComponent,
     RegisterComponent,
-    RecipeListComponent
+    RecipeListComponent,
+    HomePageComponent,
+    CreateNewRecipeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
