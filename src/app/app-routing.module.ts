@@ -1,9 +1,9 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router'
 
-import { LoginComponent } from './login/login.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { HomePageComponent } from './website-components/home-page/home-page.component';
+import { RecipeListComponent } from './website-components/recipe-list/recipe-list.component';
 
 const appRoutes: Routes = [
     // each object represents a route

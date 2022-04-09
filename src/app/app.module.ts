@@ -2,13 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { RecipeListComponent } from './recipe-list/recipe-list.component';
-import { HomePageComponent } from './home-page/home-page.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { LoginComponent } from './authentication/login/login.component';
+import { RegisterComponent } from './authentication/register/register.component';
+import { RecipeListComponent } from './website-components/recipe-list/recipe-list.component';
+import { HomePageComponent } from './website-components/home-page/home-page.component';
 import { AppRoutingModule } from './app-routing.module';
-import { CreateNewRecipeComponent } from './create-new-recipe/create-new-recipe.component';
+import { CreateNewRecipeComponent } from './website-components/create-new-recipe/create-new-recipe.component';
+import { LSideBarComponent } from './layout/l-side-bar/l-side-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CreateNewRecipeComponent } from './create-new-recipe/create-new-recipe.
     RegisterComponent,
     RecipeListComponent,
     HomePageComponent,
-    CreateNewRecipeComponent
+    CreateNewRecipeComponent,
+    LSideBarComponent
   ],
   imports: [
     BrowserModule,
