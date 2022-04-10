@@ -10,6 +10,7 @@ import { HomePageComponent } from './website-components/home-page/home-page.comp
 import { AppRoutingModule } from './app-routing.module';
 import { CreateNewRecipeComponent } from './website-components/create-new-recipe/create-new-recipe.component';
 import { LSideBarComponent } from './layout/l-side-bar/l-side-bar.component';
+import { TermsOfServiceComponent } from './misc/terms-of-service/terms-of-service.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LSideBarComponent } from './layout/l-side-bar/l-side-bar.component';
     RecipeListComponent,
     HomePageComponent,
     CreateNewRecipeComponent,
-    LSideBarComponent
+    LSideBarComponent,
+    TermsOfServiceComponent
   ],
   imports: [
     BrowserModule,
