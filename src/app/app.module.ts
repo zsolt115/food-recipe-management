@@ -5,10 +5,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { LoginComponent } from './authentication/login/login.component';
 import { RegisterComponent } from './authentication/register/register.component';
-import { RecipeListComponent } from './website-components/recipe-list/recipe-list.component';
+
 import { HomePageComponent } from './website-components/home-page/home-page.component';
-import { AppRoutingModule } from './app-routing.module';
+import { RecipeListComponent } from './website-components/recipes/recipe-list/recipe-list.component';
+import { RecipesComponent } from './website-components/recipes/recipes.component';
+import { RecipeDetailComponent } from './website-components/recipes/recipe-detail/recipe-detail.component';
+import { RecipeItemComponent } from './website-components/recipes/recipe-list/recipe-item/recipe-item.component';
 import { CreateNewRecipeComponent } from './website-components/create-new-recipe/create-new-recipe.component';
+
+import { AppRoutingModule } from './app-routing.module';
 import { LSideBarComponent } from './layout/l-side-bar/l-side-bar.component';
 import { TermsOfServiceComponent } from './misc/terms-of-service/terms-of-service.component';
 
@@ -22,7 +27,10 @@ import { TermsOfServiceComponent } from './misc/terms-of-service/terms-of-servic
     HomePageComponent,
     CreateNewRecipeComponent,
     LSideBarComponent,
-    TermsOfServiceComponent
+    TermsOfServiceComponent,
+    RecipeDetailComponent,
+    RecipeItemComponent,
+    RecipesComponent
   ],
   imports: [
     BrowserModule,
