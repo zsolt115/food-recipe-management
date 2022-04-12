@@ -12,8 +12,16 @@
         </ul>
 
         <div class="text-end">
-          <button routerLink="/login" type="button" class="btn btn-outline-light me-2">Login</button>
-          <button routerLink="/register" type="button" class="btn btn-warning">Sign-up</button>
+          <ng-container *ngIf="authService.userStatus$ | async as user; else login">
+            <button type="button" class="btn btn-outline-light me-2" (click)="logout()">Logout</button>
+          </ng-container>
+
+          <ng-template #login>
+            <button routerLink="/login" type="button" class="btn btn-outline-light me-2">Login</button>
+            <button routerLink="/register" type="button" class="btn btn-warning">Sign-up</button>
+          </ng-template>
+
+
         </div>
       </div>
     </div>
