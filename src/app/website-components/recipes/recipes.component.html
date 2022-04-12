@@ -1,1 +1,24 @@
-<p>recipes works!</p>
+<div class="row" style="justify-content: center; flex-direction: column; text-align: center; margin: 50px;">
+    <h1>
+        RECIPE LIST
+    </h1>
+</div>
+
+<div class="row" style="margin: 2%;">
+    <div class="col-md-12">
+        <button routerLink="/new-recipe" class="btn btn-success">New Recipe</button>
+    </div>
+</div>
+
+<div class="row" style="margin: 2%;">
+    <div class="col-md-4">
+        <app-recipe-list (theSelectedRecipe)="selectedRecipe = $event"></app-recipe-list>
+    </div>
+    
+    <div class="col-md-8">
+        <app-recipe-details-ingredients *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-details-ingredients>
+        <ng-template #infoText>
+            <p>Please select a recipe</p>
+        </ng-template>
+    </div>
+</div>

@@ -9,13 +9,13 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { HomePageComponent } from './website-components/home-page/home-page.component';
 import { RecipeListComponent } from './website-components/recipes/recipe-list/recipe-list.component';
 import { RecipesComponent } from './website-components/recipes/recipes.component';
-import { RecipeDetailComponent } from './website-components/recipes/recipe-detail/recipe-detail.component';
+import { RecipeManagingComponent } from './website-components/recipes/recipe-managing/recipe-managing.component';
 import { RecipeItemComponent } from './website-components/recipes/recipe-list/recipe-item/recipe-item.component';
 import { CreateNewRecipeComponent } from './website-components/create-new-recipe/create-new-recipe.component';
 
 import { AppRoutingModule } from './app-routing.module';
-import { LSideBarComponent } from './layout/l-side-bar/l-side-bar.component';
 import { TermsOfServiceComponent } from './misc/terms-of-service/terms-of-service.component';
+import { RecipeDetailsIngredientsComponent } from './website-components/recipes/recipe-details-ingredients/recipe-details-ingredients.component';
 
 @NgModule({
   declarations: [
@@ -26,11 +26,11 @@ import { TermsOfServiceComponent } from './misc/terms-of-service/terms-of-servic
     RecipeListComponent,
     HomePageComponent,
     CreateNewRecipeComponent,
-    LSideBarComponent,
     TermsOfServiceComponent,
-    RecipeDetailComponent,
+    RecipeManagingComponent,
     RecipeItemComponent,
-    RecipesComponent
+    RecipesComponent,
+    RecipeDetailsIngredientsComponent
   ],
   imports: [
     BrowserModule,
