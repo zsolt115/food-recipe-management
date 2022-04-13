@@ -1,3 +1,4 @@
+<ng-container *ngIf="user$ | async as user; else loginRequired">
 <div class="row" style="justify-content: center; flex-direction: column; text-align: center; margin: 50px;">
     <h1>
         RECIPE LIST
@@ -22,3 +23,8 @@
         </ng-template>
     </div>
 </div>
+</ng-container>
+
+<ng-template #loginRequired>
+    <h1>In order to see the recipes you need to log in!</h1>
+</ng-template>

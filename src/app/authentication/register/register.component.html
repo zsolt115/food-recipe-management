@@ -4,36 +4,31 @@
         <div class="card-body p-5">
           <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-          <form>
-            <div class="form-outline mb-4">
-              <label class="form-label" for="formRegUsername" style="margin-left: 0px;">Your Name</label>
-              <input type="text" id="formRegUsername" class="form-control form-control-lg">
-            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 71.2px;"></div><div class="form-notch-trailing"></div></div></div>
-
+          <form [formGroup]="registerForm" (ngSubmit)="submit()" onsubmit="if(document.getElementById('agree').checked)" >
             <div class="form-outline mb-4">
               <label class="form-label" for="formRegUserEmail" style="margin-left: 0px;">Your Email</label>
-              <input type="email" id="formRegUserEmail" class="form-control form-control-lg">
+              <input type="email" id="formRegUserEmail" class="form-control form-control-lg" formControlName="email">
             <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 69.6px;"></div><div class="form-notch-trailing"></div></div></div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="formRegPassword" style="margin-left: 0px;">Password</label>
-              <input type="password" id="formRegPassword" class="form-control form-control-lg">
+              <input type="password" id="formRegPassword" class="form-control form-control-lg" formControlName="password">
             <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 64px;"></div><div class="form-notch-trailing"></div></div></div>
 
             <div class="form-outline mb-4">
               <label class="form-label" for="formRepeatPassword" style="margin-left: 0px;">Repeat your password</label>
-              <input type="password" id="formRepeatPassword" class="form-control form-control-lg">
+              <input type="password" id="formRepeatPassword" class="form-control form-control-lg" formControlName="confirmPassword">
             <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 136px;"></div><div class="form-notch-trailing"></div></div></div>
 
             <div class="form-check d-flex justify-content-center mb-5">
-              <input class="form-check-input me-2" type="checkbox" value="" id="formTerms">
+              <input class="form-check-input me-2" type="checkbox" value="" id="formTerms" (change)="changeEvent($event)">
               <label class="form-check-label" for="formTerms">
                 I agree all statements in <a href="#!" routerLink="/terms-of-service" class="text-body"><u>Terms of service</u></a>
               </label>
             </div>
 
             <div class="d-flex justify-content-center">
-              <button type="button" class="btn btn-dark btn-lg" style="color: white;">Register</button>
+              <button type="submit" class="btn btn-dark btn-lg" style="color: white;" [disabled]="toggleBool">Register</button>
             </div>
           </form>
 

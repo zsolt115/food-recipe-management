@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Recipe } from './recipe.model';
 import { RecipeService } from './recipe.service';
 
@@ -10,8 +11,10 @@ import { RecipeService } from './recipe.service';
 })
 export class RecipesComponent implements OnInit {
   selectedRecipe: Recipe;
+  
+  user$ = this.authService.userStatus$;
 
-  constructor(private recipeService: RecipeService) { }
+  constructor(private recipeService: RecipeService, private authService: AuthenticationService) { }
 
   ngOnInit(): void {
     this.recipeService.recipeSelected.subscribe(
