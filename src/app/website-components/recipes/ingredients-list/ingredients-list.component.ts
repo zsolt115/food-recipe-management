@@ -15,9 +15,14 @@ export class IngredientsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.ingredients = this.ingredientListService.getIngredients();
+
     this.ingredientListService.ingredientsChanged.subscribe(
       (ingredients: Ingredient[]) => {
         this.ingredients = ingredients;
     });
+  }
+
+  onDeleteItem(ingredientToDelete: Ingredient) {
+    this.ingredientListService.onDeleteIngredient(ingredientToDelete);
   }
 }

@@ -14,30 +14,31 @@
                     <h4>Recipe details</h4>
                 </div>
                 <div class="col-md-6 text-end">
-                    <button class="btn btn-primary" type="submit" (click)="onCreateRecipe()">CREATE</button>
+                    <button class="btn btn-primary" type="submit" form="createPostForm">CREATE</button>
                 </div>
             </div>
 
             <hr>
-            <form>
+            <form id="createPostForm" #postForm="ngForm" (ngSubmit)="onCreatePostRecipes()">
                 <div class="row">
                     <div class="col-sm-5 form-group">
                         <label for="name">Recipe Name</label>
-                        <input type="text" id="recipeName" class="form-control">
+                        <input type="text" id="recipeName" class="form-control" #recipeName>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-5 form group">
                         <label for="amount">Description</label>
-                        <textarea name="description" id="recipeDescription" cols="100" rows="10"></textarea>
+                        <textarea name="description" id="recipeDescription" cols="100" rows="10" #recipeDescription></textarea>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-sm-5 form group">
                         <label for="image">Image path</label>
-                        <input type="text" id="image" class="form-control">
+                        <input type="text" id="image" class="form-control" #recipeImagePath> 
+                        <!-- type="file" -->
                     </div>
                 </div>
             </form>

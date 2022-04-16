@@ -32,6 +32,8 @@ import { IngredientsListComponent } from './website-components/recipes/ingredien
 import { IngredientsListService } from './website-components/recipes/ingredients-list/ingredients-list.service';
 import { IngredientActionComponent } from './website-components/recipes/ingredients-list/ingredient-action/ingredient-action.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +62,8 @@ import { IngredientActionComponent } from './website-components/recipes/ingredie
     AngularFireDatabaseModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
+    HttpClientModule
   ],
   providers: [IngredientsListService],
   bootstrap: [AppComponent]

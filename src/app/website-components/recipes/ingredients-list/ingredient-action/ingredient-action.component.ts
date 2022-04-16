@@ -12,10 +12,9 @@ export class IngredientActionComponent implements OnInit {
   @ViewChild('amountInput') amountInputRef: ElementRef;
   @ViewChild('unitInput') unitInputRef: ElementRef;
 
-  constructor(private ingredientListService: IngredientsListService) { }
+  constructor(private ingredientListService: IngredientsListService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onAddItem() {
     const ingredientName = this.nameInputRef.nativeElement.value;
