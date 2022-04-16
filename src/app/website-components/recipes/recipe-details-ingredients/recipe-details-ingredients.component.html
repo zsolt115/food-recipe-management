@@ -10,22 +10,24 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-xs-12">
-        <div>
-            <button type="button" class="btn btn-success">Edit</button>
-            <button type="button" class="btn btn-danger">Delete</button>
-        </div>
-    </div>
-</div>
+<br>
 
 <div class="row">
     <div class="col-xs-12">
         {{ recipe.description }}
     </div>
 </div>
+
+<br>
+
 <div class="row">
     <div class="col-xs-12">
-        Ingredients
+        <ul>
+            <li class="list-group-item"
+                *ngFor="let ingredient of recipe.ingredients"
+            >
+                {{ ingredient.name }} - {{ ingredient.amount }}({{ ingredient.unit }})
+            </li>
+        </ul>
     </div>
 </div>

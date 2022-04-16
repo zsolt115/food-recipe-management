@@ -4,7 +4,6 @@
         <app-recipe-item
             *ngFor="let singleRecipe of recipes"
             [recipe]="singleRecipe"
-            (recipeSelected)="onRecipeSelected(singleRecipe)"
             >
         </app-recipe-item>
     </div>

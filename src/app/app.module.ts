@@ -9,7 +9,6 @@ import { RegisterComponent } from './authentication/register/register.component'
 import { HomePageComponent } from './website-components/home-page/home-page.component';
 import { RecipeListComponent } from './website-components/recipes/recipe-list/recipe-list.component';
 import { RecipesComponent } from './website-components/recipes/recipes.component';
-import { RecipeManagingComponent } from './website-components/recipes/recipe-managing/recipe-managing.component';
 import { RecipeItemComponent } from './website-components/recipes/recipe-list/recipe-item/recipe-item.component';
 import { CreateNewRecipeComponent } from './website-components/create-new-recipe/create-new-recipe.component';
 
@@ -29,6 +28,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { IngredientsListComponent } from './website-components/recipes/ingredients-list/ingredients-list.component';
+import { IngredientsListService } from './website-components/recipes/ingredients-list/ingredients-list.service';
+import { IngredientActionComponent } from './website-components/recipes/ingredients-list/ingredient-action/ingredient-action.component';
 
 @NgModule({
   declarations: [
@@ -40,10 +42,11 @@ import { HotToastModule } from '@ngneat/hot-toast';
     HomePageComponent,
     CreateNewRecipeComponent,
     TermsOfServiceComponent,
-    RecipeManagingComponent,
     RecipeItemComponent,
     RecipesComponent,
-    RecipeDetailsIngredientsComponent
+    RecipeDetailsIngredientsComponent,
+    IngredientsListComponent,
+    IngredientActionComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,7 @@ import { HotToastModule } from '@ngneat/hot-toast';
     provideAuth(() => getAuth()),
     HotToastModule.forRoot()
   ],
-  providers: [],
+  providers: [IngredientsListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

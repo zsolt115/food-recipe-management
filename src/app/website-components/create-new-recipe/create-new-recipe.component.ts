@@ -14,4 +14,8 @@ export class CreateNewRecipeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onCreateRecipe() {
+    
+  }
+
 }
