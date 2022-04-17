@@ -1,3 +1,5 @@
 <h1 *ngIf="user$ | async as user">
-    Welcome, {{ user.email }}!
+    Welcome, {{ 
+        (user && user.email && user.email.substring(0, user.email.indexOf('@'))) ? user.email.substring(0, user.email.indexOf('@')).toUpperCase() : user.email.toUpperCase()
+    }}!
 </h1>

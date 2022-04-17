@@ -1,20 +1,20 @@
 <a class="list-group-item clearfix" (click)="onSelected()">
     <div class="float-md-start">
-        <h4 class="list-group-item-heading"> {{ recipe.name }} </h4> 
-        <p class="list-group-item-text"> {{ recipe.description }} </p>
-
+        <h4 class="list-group-item-heading"> {{ recipe.recipeName }} </h4>
+        <button class="btn btn-success">Edit</button>
+        <button class="btn btn-danger" (click)="onDelete()">Delete</button>
     </div>
     
     <span class="float-md-end">
         <!-- 
-            property binding     -> [src]="recipe.imagePath" 
-            string interpolation -> alt=" {{ recipe.name }} " 
+            property binding     -> [src]="recipe.recipeImage" 
+            string interpolation -> alt=" {{ recipe.recipeName }} " 
         -->
         <img 
-            [src]="recipe.imagePath"
-            alt=" {{ recipe.name }} "
+            [src]="recipe.recipeImage"
+            alt=" {{ recipe.recipeName }} "
             class="img-responsive"
-            style="max-height: 100px;"
+            style="max-height: 100px; max-width: 100px;"
         >
     </span>
 </a>
