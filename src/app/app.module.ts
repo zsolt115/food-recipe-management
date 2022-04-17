@@ -33,6 +33,7 @@ import { IngredientsListService } from './website-components/recipes/ingredients
 import { IngredientActionComponent } from './website-components/recipes/ingredients-list/ingredient-action/ingredient-action.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { RecipeService } from './website-components/recipes/recipe.service';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { HttpClientModule } from '@angular/common/http';
     HotToastModule.forRoot(),
     HttpClientModule
   ],
-  providers: [IngredientsListService],
+  providers: [IngredientsListService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,13 +13,22 @@ export class RecipeListComponent implements OnInit {
 
   recipes: Recipe[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private recipeService: RecipeService, private http: HttpClient) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    // this.recipeService.onCreateGETRecipes();
+    // console.log(a);
+    
+    
+    this.http.get('https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/posts.json', {
+    }).subscribe((res: Recipe[]) => {
+      this.recipes = res;
 
-  }
+      const keys = Object.keys(res);
 
-  onCreateGetRecipes() {
-    return this.http.get('https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/posts.json').subscribe(data => console.log(data));
+      this.recipes = keys.map((key) => {
+        return res[key];
+      });
+    });
   }
 }
