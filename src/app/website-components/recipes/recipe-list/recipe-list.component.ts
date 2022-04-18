@@ -16,7 +16,7 @@ export class RecipeListComponent implements OnInit {
 
   ngOnInit() {    
     this.http
-      .get('https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/posts.json', {})
+      .get('https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', {})
       .subscribe((res: Recipe[]) => {
         this.recipes = res;
 

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import * as firebase from 'firebase/compat';
 import { Observable } from 'rxjs/internal/Observable';
@@ -19,17 +19,13 @@ export class RecipeItemComponent implements OnInit {
   
   constructor(private recipeService: RecipeService, private authService: AuthenticationService, private http: HttpClient) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSelected() {
     this.recipeService.recipeSelected.emit(this.recipe);
   }
 
   onDelete() {
-    this.http.delete(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/posts/${this.recipe.id}`)
-      .subscribe(data => {
-        console.log(data);
-      });
+    this.http.delete(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes/${this.recipe.id}.json`, { }).subscribe((res) => console.log(res));
   }
 }
