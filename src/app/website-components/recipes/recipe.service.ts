@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Ingredient } from 'src/app/ingredients.model';
 import { Recipe } from './recipe.model';
 
@@ -29,9 +31,24 @@ export class RecipeService {
 
     private recipes: Recipe[];
 
-    constructor() {}
+    constructor(private http: HttpClient) {}
 
-    getRecipes() {
-        return this.recipes.slice();
+    getRecipesFromDB() {
+        this.http
+            .get('https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', {})
+            .subscribe((res: Recipe[]) => {
+            this.recipes = res;
+    
+            // const keys = Object.keys(res);
+    
+            // this.recipes = keys.map((key) => {
+            //     res[key].id = key;
+            //     return new Recipe(res[key].id, res[key].recipeName, res[key].recipeDescription, res[key].recipeImage, res[key].ingredients);
+            // });
+        });
+    }
+
+    getRecipes(): Observable<Recipe[]> {
+        return this.http.get<Recipe[]>('https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', {});
     }
 }
