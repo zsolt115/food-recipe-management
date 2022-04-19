@@ -1,7 +1,7 @@
 <a class="list-group-item clearfix" (click)="onSelected()">
     <div class="float-md-start">
         <h4 class="list-group-item-heading"> {{ recipe.recipeName }} </h4>
-        <button class="btn btn-success">Edit</button>
+        <button class="btn btn-success" (click)="onUpdate(recipe)">Edit</button>
         <button class="btn btn-danger" (click)="onDelete(recipe)">Delete</button>
     </div>
     
@@ -18,3 +18,5 @@
         >
     </span>
 </a>
+
+

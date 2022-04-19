@@ -34,6 +34,12 @@ import { IngredientActionComponent } from './website-components/recipes/ingredie
 
 import { HttpClientModule } from '@angular/common/http';
 import { RecipeService } from './website-components/recipes/recipe.service';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
+import { EditDialogComponent } from './website-components/recipes/edit-dialog/edit-dialog.component';
+
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
 @NgModule({
   declarations: [
@@ -49,7 +55,8 @@ import { RecipeService } from './website-components/recipes/recipe.service';
     RecipesComponent,
     RecipeDetailsIngredientsComponent,
     IngredientsListComponent,
-    IngredientActionComponent
+    IngredientActionComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -64,9 +71,30 @@ import { RecipeService } from './website-components/recipes/recipe.service';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     HotToastModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule
   ],
-  providers: [IngredientsListService, RecipeService],
-  bootstrap: [AppComponent]
+  providers: [
+    IngredientsListService,
+    RecipeService,
+    {
+      provide: MatDialogRef,
+      useValue: {}
+    },
+    {
+      provide: MAT_DIALOG_DATA,
+      useValue: {}
+    },
+    {
+      provide: EditDialogComponent,
+      useValue: {}
+    }
+    
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [EditDialogComponent] // the component to be usable as a dialog body, we need to declare it as an entryComponent
 })
 export class AppModule { }

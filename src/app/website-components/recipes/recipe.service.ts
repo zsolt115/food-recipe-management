@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { Ingredient } from 'src/app/ingredients.model';
+import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { Recipe } from './recipe.model';
 
 @Injectable()
@@ -31,7 +33,7 @@ export class RecipeService {
 
     private recipes: Recipe[];
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient, private dialog: MatDialog) {}
 
     getRecipesFromDB() {
         this.http
@@ -51,4 +53,26 @@ export class RecipeService {
     getRecipes(): Observable<Recipe[]> {
         return this.http.get<Recipe[]>('https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes.json', {});
     }
+
+    // openDialog(): void {
+    //     const dialogConfig = new MatDialogConfig();
+
+    //     dialogConfig.disableClose = true;
+    //     dialogConfig.autoFocus = true;
+    
+    //     dialogConfig.data = {
+    //         id: 1,
+    //         title: 'Angular For Beginners',
+    //     };
+    
+    //     dialogConfig.height = '300px';
+    //     dialogConfig.width = '250px';
+    //     // this.dialog.open(EditDialogComponent, dialogConfig);
+        
+    //     const dialogRef = this.dialog.open(EditDialogComponent, dialogConfig);
+    
+    //     dialogRef.afterClosed().subscribe(
+    //         data => console.log("Dialog output:", data)
+    //     );
+    // }
 }

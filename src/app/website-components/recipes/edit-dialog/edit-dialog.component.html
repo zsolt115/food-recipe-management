@@ -1,0 +1,44 @@
+<h2 mat-dialog-title>Edit recipe</h2>
+
+<mat-dialog-content [formGroup]="form">
+  
+    <mat-form-field>
+        <label>Recipe Name: </label>
+        <input matInput
+            [value]="recipe.recipeName"
+            >
+        <label>Recipe Description: </label>
+        <textarea 
+            [value]="recipe.recipeDescription"
+            ></textarea>
+        <label>Recipe Ingredients</label>
+        <div class="row" *ngFor="let ingredient of recipe.recipeIngredients">
+            <div>
+                <label>Name: </label>
+                <input matInput
+                    [value]="ingredient.name">
+            </div>
+
+            <div>
+                <label>Amount: </label>
+                <input matInput
+                    [value]="ingredient.amount">
+            </div>
+
+            <div>
+            <label>Unit: </label>
+                <input matInput
+                    [value]="ingredient.unit">
+            </div>
+            
+        </div>
+
+    </mat-form-field>
+      ....
+ 
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+</mat-dialog-actions>
