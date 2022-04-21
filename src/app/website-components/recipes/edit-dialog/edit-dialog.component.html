@@ -1,44 +1,60 @@
 <h2 mat-dialog-title>Edit recipe</h2>
 
-<mat-dialog-content [formGroup]="form">
-  
+<mat-dialog-content [formGroup]="recipeForm">
     <mat-form-field>
-        <label>Recipe Name: </label>
+        <mat-label>Recipe Name:</mat-label>
         <input matInput
-            [value]="recipe.recipeName"
+        formControlName="recipeName"
             >
-        <label>Recipe Description: </label>
-        <textarea 
-            [value]="recipe.recipeDescription"
-            ></textarea>
-        <label>Recipe Ingredients</label>
-        <div class="row" *ngFor="let ingredient of recipe.recipeIngredients">
-            <div>
-                <label>Name: </label>
-                <input matInput
-                    [value]="ingredient.name">
-            </div>
-
-            <div>
-                <label>Amount: </label>
-                <input matInput
-                    [value]="ingredient.amount">
-            </div>
-
-            <div>
-            <label>Unit: </label>
-                <input matInput
-                    [value]="ingredient.unit">
-            </div>
-            
-        </div>
-
     </mat-form-field>
-      ....
- 
+    <br>
+    <mat-form-field>
+        <mat-label>Recipe Description:</mat-label>
+        <textarea matInput
+            rows="10"
+            formControlName="recipeDescription"
+            ></textarea>
+    </mat-form-field>
+    <br>
+    <mat-label>Recipe Ingredients:</mat-label>
+    <br>
+
+    <div class="row">
+        <div formArrayName="recipeIngredients">
+            <div 
+                *ngFor="let ingredientCtrl of controls; let i = index"
+                [formGroupName]="i">
+                
+                <mat-form-field>
+                    <input matInput
+                    type="text"
+                    class="form-control"
+                    formControlName="name">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <input matInput
+                    type="number"
+                    class="form-control"
+                    formControlName="amount">
+                </mat-form-field>
+    
+                <mat-form-field>
+                    <input matInput
+                    type="text"
+                    class="form-control"
+                    formControlName="unit">
+                </mat-form-field>
+                
+                <button class="btn btn-danger">Delete</button>
+            </div>
+        </div >
+    </div>
+
+
 </mat-dialog-content>
 
 <mat-dialog-actions>
-    <button class="mat-raised-button"(click)="close()">Close</button>
-    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+    <button type="button" class="mat-raised-button"(click)="close()">Close</button>
+    <button type="submit" class="mat-raised-button mat-primary"(click)="save()">Save</button>
 </mat-dialog-actions>

@@ -8,7 +8,13 @@ export class Recipe {
 
     public recipeIngredients: Ingredient[];
 
-    constructor(id: string, recipeName: string, recipeDescription: string, recipeImage: string, ingredients: Ingredient[]) {
+    constructor(
+        id: string,
+        recipeName: string,
+        recipeDescription: string,
+        recipeImage: string,
+        ingredients: Ingredient[]
+    ) {
         this.id = id;
         this.recipeName = recipeName;
         this.recipeDescription = recipeDescription;

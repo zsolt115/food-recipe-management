@@ -39,11 +39,12 @@ export class RecipeItemComponent implements OnInit {
   }
 
   onUpdate(recipe) {
-    console.log('sadsadsads')
-    this.editDialogComponent.openDialog(recipe);
-    // const newData = {"recipeDescription":"","recipeImage":"","recipeIngredients":[{"amount":"2","name":"buns","unit":""},{"amount":"1","name":"meat","unit":""},{"amount":"1","name":"tomato","unit":""}],"recipeName":"burgir14"};
-    // this.http.put(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`, newData).subscribe((res) => console.log(res));
-    // this.recipeListComponent.ngOnInit();
-  }
+    const newRecipeData = this.editDialogComponent.openDialog(recipe);
 
+    this.http
+      .put(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`, newRecipeData)
+      .subscribe((res) => console.log(res));
+  
+    this.recipeListComponent.ngOnInit();
+  }
 }
