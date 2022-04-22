@@ -19,26 +19,58 @@
             </div>
 
             <hr>
-            <form id="createPostForm" #postForm="ngForm" (ngSubmit)="onCreatePostRecipes()">
+            <form id="createPostForm" [formGroup]="createRecipeForm" #postForm="ngForm" (ngSubmit)="onCreatePostRecipes()">
                 <div class="row">
                     <div class="col-sm-5 form-group">
                         <label for="name">Recipe Name</label>
-                        <input type="text" id="recipeName" class="form-control" #recipeName>
+                        <input type="text" id="recipeName" class="form-control" formControlName="recipeName" required #recipeName>
+                        <div *ngIf="createRecipeForm.controls['recipeName'].invalid && (createRecipeForm.controls['recipeName'].dirty || createRecipeForm.controls['recipeName'].touched)" class="alert alert-danger">
+                            <div *ngIf="createRecipeForm.controls['recipeName'].errors.required">
+                                Recipe name is required.
+                          </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-5 form group">
+                    <div class="col-sm-5 form-group">
                         <label for="amount">Description</label>
-                        <textarea name="description" id="recipeDescription" cols="100" rows="10" #recipeDescription></textarea>
+                        <textarea 
+                            id="recipeDescription"
+                            class="form-control"
+                            name="description"
+                            formControlName="recipeDescription"
+                            cols="100" rows="10"
+                            required
+                            #recipeDescription>
+                        </textarea>
+                        <div *ngIf="createRecipeForm.controls['recipeDescription'].invalid && (
+                                createRecipeForm.controls['recipeDescription'].dirty ||
+                                createRecipeForm.controls['recipeDescription'].touched
+                            )"
+                            class="alert alert-danger">
+
+                            <div *ngIf="createRecipeForm.controls['recipeDescription'].errors.required">
+                                Recipe description is required.
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-5 form group">
+                    <div class="col-sm-5 form-group">
                         <label for="image">Image path</label>
-                        <input type="text" id="image" class="form-control" #recipeImagePath> 
-                        <!-- type="file" -->
+                        <input type="text" id="image" class="form-control" formControlName="recipeImage" required #recipeImagePath> 
+                        <div *ngIf="createRecipeForm.controls['recipeImage'].invalid && (
+                            createRecipeForm.controls['recipeImage'].dirty ||
+                            createRecipeForm.controls['recipeImage'].touched
+                        )"
+                        class="alert alert-danger">
+
+                            <div *ngIf="createRecipeForm.controls['recipeImage'].errors.required">
+                                Recipe image is required.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -56,8 +88,6 @@
     </div>
             
 </ng-container>
-
-
 
 <ng-template #loginRequired>
     <h1>In order to create new recipes you need to log in!</h1>

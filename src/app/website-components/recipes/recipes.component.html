@@ -6,12 +6,6 @@
 </div>
 
 <div class="row" style="margin: 2%;">
-    <div class="col-xs-12">
-        <button routerLink="/new-recipe" class="btn btn-success">New Recipe</button>
-    </div>
-</div>
-
-<div class="row" style="margin: 2%;">
     <div class="col-md-3">
         <app-recipe-list (theSelectedRecipe)="selectedRecipe = $event"></app-recipe-list>
     </div>

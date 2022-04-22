@@ -33,9 +33,9 @@ export class RecipeItemComponent implements OnInit {
   }
 
   onDelete(recipe) {
-    this.http.delete(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`, { }).subscribe((res) => console.log(res));
-  
-    this.recipeListComponent.ngOnInit();
+    this.http
+      .delete(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`, { })
+      .subscribe(() => this.recipeListComponent.ngOnInit());
   }
 
   onUpdate(recipe) {
