@@ -1,14 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Inject, Injectable, Input, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { stringify } from 'querystring';
 import { Ingredient } from 'src/app/ingredients.model';
+import { RecipeListComponent } from '../recipe-list/recipe-list.component';
 import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-edit-dialog',
   templateUrl: './edit-dialog.component.html',
   styleUrls: ['./edit-dialog.component.css'],
+  providers: [RecipeListComponent]
 })
 export class EditDialogComponent implements OnInit {
   recipeForm: FormGroup;
@@ -24,13 +27,13 @@ export class EditDialogComponent implements OnInit {
     private dialog: MatDialog, 
     private fb: FormBuilder, 
     private dialogRef: MatDialogRef<EditDialogComponent>,
+    private recipeListComponent: RecipeListComponent,
+    private http: HttpClient,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.recipe = data;
   }
 
-
-  
   ngOnInit(): void {
     this.onCreateRecipeForm();
   }
@@ -70,7 +73,7 @@ export class EditDialogComponent implements OnInit {
 
   openDialog(recipe) {
     this.recipe = recipe;
-    let finalData;
+
     const dialogConfig = new MatDialogConfig();
 
     dialogConfig.disableClose = true;
@@ -87,10 +90,12 @@ export class EditDialogComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(
       data => {
-        finalData = data
+        this.http
+        .put(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`, data)
+        .subscribe((res) => console.log(res));
+    
+        this.recipeListComponent.ngOnInit();
       }
     );
-
-    return finalData;
 }
 }

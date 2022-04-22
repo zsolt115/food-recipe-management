@@ -39,12 +39,6 @@ export class RecipeItemComponent implements OnInit {
   }
 
   onUpdate(recipe) {
-    const newRecipeData = this.editDialogComponent.openDialog(recipe);
-
-    this.http
-      .put(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`, newRecipeData)
-      .subscribe((res) => console.log(res));
-  
-    this.recipeListComponent.ngOnInit();
+    this.editDialogComponent.openDialog(recipe);
   }
 }
