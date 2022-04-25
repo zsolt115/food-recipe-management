@@ -1,24 +1,28 @@
-<ng-container *ngIf="user$ | async as user; else loginRequired">
-<div class="row" style="justify-content: center; flex-direction: column; text-align: center; margin: 50px;">
-    <h1>
-        RECIPE LIST
-    </h1>
-</div>
 
-<div class="row" style="margin: 2%;">
-    <div class="col-md-3">
-        <app-recipe-list (theSelectedRecipe)="selectedRecipe = $event"></app-recipe-list>
-    </div>
-    
-    <div class="col-md-9">
-        <app-recipe-details-ingredients *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-details-ingredients>
-        <ng-template #infoText>
-            <p>Select a recipe to show details here</p>
+
+<div id="recipeListContainer" class="card" style="width: 95%;">
+    <ng-container *ngIf="user$ | async as user; else loginRequired" >
+        <div class="row col-xs-12" style="justify-content: center; flex-direction: column; text-align: center; margin: 5px;">
+            <h1>
+                RECIPE LIST
+            </h1>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-3 col-xs-2">
+                <app-recipe-list (theSelectedRecipe)="selectedRecipe = $event"></app-recipe-list>
+            </div>
+            
+            <div class="col-md-9 col-xs-10">
+                <app-recipe-details-ingredients *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-details-ingredients>
+                <ng-template #infoText>
+                    <p>Select a recipe to show details here</p>
+                </ng-template>
+            </div>
+        </div>
+        </ng-container>
+        
+        <ng-template #loginRequired>
+            <h1>In order to see the recipes you need to log in!</h1>
         </ng-template>
-    </div>
 </div>
-</ng-container>
-
-<ng-template #loginRequired>
-    <h1>In order to see the recipes you need to log in!</h1>
-</ng-template>

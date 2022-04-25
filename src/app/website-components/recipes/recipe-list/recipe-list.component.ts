@@ -28,6 +28,7 @@ export class RecipeListComponent implements OnInit {
 
         this.recipes = keys.map((key) => {
           res[key].id = key;
+          
           return res[key];
         });
     });

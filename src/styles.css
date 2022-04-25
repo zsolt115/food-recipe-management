@@ -1,9 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
-/* input:invalid:required {
-    border-color: red;
+html{
+    background-color: black;
 }
-#recipeDescription {
-    border-color: red;
+
+body {
+    background-image: url('../src/images/background_wooden.jpg');
+    background-repeat: no-repeat;
+    height:100vh;
+}
+
+/* body {
+    background-color: rgb(43, 42, 38) !important;
+    height:100vh;
 } */
+
+.card {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+    padding: 1rem;
+    margin: 2rem auto;
+}
+

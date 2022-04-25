@@ -10,13 +10,14 @@ import { IngredientsListService } from '../recipes/ingredients-list/ingredients-
   styleUrls: ['./create-new-recipe.component.css']
 })
 export class CreateNewRecipeComponent implements OnInit {
-  user$ = this.authService.userStatus$;
-
   @ViewChild('recipeName') recipeNameInputRef: ElementRef;
   @ViewChild('recipeDescription') recipeDescriptionInputRef: ElementRef;
   @ViewChild('recipeImagePath') recipeImagePathInputRef: ElementRef;
+  
+  user$ = this.authService.userStatus$;
 
   createRecipeForm: FormGroup;
+  errorMessage;
 
   constructor(
     private authService: AuthenticationService,
@@ -37,8 +38,9 @@ export class CreateNewRecipeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
   onCreatePostRecipes() {
+    this.errorMessage = false;
+    
     const recipeName = this.recipeNameInputRef.nativeElement.value;
 
     const recipeDescription = this.recipeDescriptionInputRef.nativeElement.value;
@@ -54,7 +56,7 @@ export class CreateNewRecipeComponent implements OnInit {
       recipeIngredients
     }
 
-    if (postData && postData.recipeName && postData.recipeDescription && postData.recipeImage && postData.recipeIngredients) {
+    if (postData && postData.recipeName && postData.recipeDescription && postData.recipeImage && postData.recipeIngredients.length) {
       this.http
       .post(
         'https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
@@ -63,8 +65,10 @@ export class CreateNewRecipeComponent implements OnInit {
       .subscribe(
         response => response
       );
+    } else if (!postData.recipeIngredients.length) {
+      this.errorMessage = 'Need at least one ingredient for the recipe.';
     } else {
-      throw new Error('not implemented');
+      this.errorMessage = 'Failed to create the recipe. One or more fields are empty.'
     }
   }
 }

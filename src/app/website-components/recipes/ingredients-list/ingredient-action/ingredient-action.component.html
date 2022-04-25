@@ -16,6 +16,7 @@
             <label for="amount">Amount</label>
             <input
               type="number"
+              min="0"
               id="amount"
               class="form-control"
               onfocus="this.value=''"
@@ -32,9 +33,14 @@
               #unitInput>
           </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top: 10px;">
           <div class="col-xs-12">
             <button class="btn btn-success" type="submit" (click)="onAddItem()">Add</button>
+          </div>
+          <div style="margin-top: 10px;"
+            class="alert alert-warning"
+            *ngIf="noValue">
+              Ingredient name and amount is required.
           </div>
         </div>
       </form>

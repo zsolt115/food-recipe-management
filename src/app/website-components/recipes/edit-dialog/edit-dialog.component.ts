@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, Injectable, Input, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { stringify } from 'querystring';
-import { Ingredient } from 'src/app/ingredients.model';
+import { Router } from '@angular/router';
 import { RecipeListComponent } from '../recipe-list/recipe-list.component';
 import { Recipe } from '../recipe.model';
 
@@ -24,6 +23,7 @@ export class EditDialogComponent implements OnInit {
   recipeIngredients = new FormArray([]);
 
   constructor(
+    private router: Router,
     private dialog: MatDialog, 
     private fb: FormBuilder, 
     private dialogRef: MatDialogRef<EditDialogComponent>,
@@ -36,6 +36,20 @@ export class EditDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.onCreateRecipeForm();
+  }
+
+  addIngredient() {
+    (<FormArray>this.recipeForm.get('recipeIngredients')).push(
+      new FormGroup({
+        'name': new FormControl(null, Validators.required),
+        'amount': new FormControl(null, Validators.required),
+        'unit': new FormControl()
+      })
+    );
+  }
+
+  deleteIngredient(deleteIngredient) {
+    (<FormArray>this.recipeForm.get('recipeIngredients')).removeAt(deleteIngredient);
   }
 
   onCreateRecipeForm() {
@@ -65,6 +79,7 @@ export class EditDialogComponent implements OnInit {
 
   save() {
     this.dialogRef.close(this.recipeForm.value);
+    
   }
 
   close() {
@@ -84,17 +99,15 @@ export class EditDialogComponent implements OnInit {
 
     dialogConfig.data = recipe;
 
-    // this.dialog.open(EditDialogComponent, dialogConfig);
-    
     const dialogRef = this.dialog.open(EditDialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe(
       data => {
+        if (!data) return;
+
         this.http
-        .put(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`, data)
-        .subscribe((res) => console.log(res));
-    
-        this.recipeListComponent.ngOnInit();
+          .put(`https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes/${recipe.id}.json`, data)
+          .subscribe(() => this.recipeListComponent.ngOnInit());
       }
     );
 }
