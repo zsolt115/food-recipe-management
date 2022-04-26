@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogConfig, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { IngredientsListService } from '../ingredients-list/ingredients-list.service';
 import { RecipeListComponent } from '../recipe-list/recipe-list.component';
 import { Recipe } from '../recipe.model';
 
@@ -23,7 +22,6 @@ export class EditDialogComponent implements OnInit {
   recipeIngredients = new FormArray([]);
 
   constructor(
-    private ingredientsListService: IngredientsListService,
     private dialog: MatDialog, 
     private fb: FormBuilder, 
     private dialogRef: MatDialogRef<EditDialogComponent>,

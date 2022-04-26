@@ -3,7 +3,7 @@
 <div id="recipeListContainer" class="card" style="width: 95%;">
     <ng-container *ngIf="user$ | async as user; else loginRequired" >
         <div class="row col-xs-12" style="justify-content: center; flex-direction: column; text-align: center; margin: 5px;">
-            <h1>
+            <h1 style="margin-bottom: 40px; font-size: 60px; color: white; font-family: Fontawesome">
                 RECIPE LIST
             </h1>
         </div>
@@ -16,7 +16,7 @@
             <div class="col-md-9 col-xs-10">
                 <app-recipe-details-ingredients *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-details-ingredients>
                 <ng-template #infoText>
-                    <p>Select a recipe to show details here</p>
+                    <p style="color: white; margin-left: 60px;">Select a recipe to show details here</p>
                 </ng-template>
             </div>
         </div>

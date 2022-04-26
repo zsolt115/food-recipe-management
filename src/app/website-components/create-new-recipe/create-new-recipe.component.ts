@@ -18,6 +18,7 @@ export class CreateNewRecipeComponent implements OnInit {
 
   createRecipeForm: FormGroup;
   errorMessage;
+  recipeCreated;
 
   constructor(
     private authService: AuthenticationService,
@@ -39,8 +40,6 @@ export class CreateNewRecipeComponent implements OnInit {
   }
 
   onCreatePostRecipes() {
-    this.errorMessage = false;
-    
     const recipeName = this.recipeNameInputRef.nativeElement.value;
 
     const recipeDescription = this.recipeDescriptionInputRef.nativeElement.value;
@@ -63,12 +62,22 @@ export class CreateNewRecipeComponent implements OnInit {
         postData
       )
       .subscribe(
-        response => response
+        response => {
+          this.recipeCreated = 'You have successfully created the recipe!';
+
+          setTimeout(() => this.recipeCreated = '', 5000);
+                 
+          return response;
+        }
       );
     } else if (!postData.recipeIngredients.length) {
       this.errorMessage = 'Need at least one ingredient for the recipe.';
+
+      setTimeout(() => this.errorMessage = '', 5000);
     } else {
       this.errorMessage = 'Failed to create the recipe. One or more fields are empty.'
+
+      setTimeout(() => this.errorMessage = '', 5000);
     }
   }
 }

@@ -11,6 +11,10 @@
         <strong>Warning!</strong> {{ errorMessage | json }}
     </div>
 
+    <div *ngIf="recipeCreated" class="alert show alert-success fade alert-dismissible" style="justify-content: center; text-align: center;">
+        <strong></strong> {{ recipeCreated | json }}
+    </div>
+    
     <div class="row" style="margin: 50px; color: rgb(212,175,55)">
         <div class="col-xs-12">
             <hr>
@@ -71,6 +75,7 @@
                                     <div *ngIf="createRecipeForm.controls['recipeImage'].errors.required">
                                         Recipe image is required.
                                     </div>
+
                                 </div>
                             </div>
                         </div>
