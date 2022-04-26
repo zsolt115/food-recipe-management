@@ -1,4 +1,4 @@
-import { Ingredient } from "src/app/ingredients.model";
+import { Ingredient } from "src/app/website-components/recipes/ingredients.model";
 
 export class Recipe {
     public id: string;

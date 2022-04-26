@@ -23,3 +23,10 @@ body {
     margin: 2rem auto;
 }
 
+h1.not-logged-in {
+    font-size: 40px;
+    color: white;
+    margin: auto;
+    width: 50%;
+    margin-top: 300px;
+}

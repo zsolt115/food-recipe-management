@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { Ingredient } from 'src/app/ingredients.model';
+import { Ingredient } from 'src/app/website-components/recipes/ingredients.model';
 import { EditDialogComponent } from './edit-dialog/edit-dialog.component';
 import { Recipe } from './recipe.model';
 
