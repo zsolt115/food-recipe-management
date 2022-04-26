@@ -1,0 +1,10 @@
+#leftSideRecipeList {
+    overflow: scroll;
+    max-height: 75vh;
+    background-color: gray;
+    padding: 30px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+
+    transition: all .4s ease-in;
+}

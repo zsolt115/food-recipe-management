@@ -57,27 +57,27 @@ export class CreateNewRecipeComponent implements OnInit {
 
     if (postData && postData.recipeName && postData.recipeDescription && postData.recipeImage && postData.recipeIngredients.length) {
       this.http
-      .post(
-        'https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
-        postData
-      )
-      .subscribe(
-        response => {
-          this.recipeCreated = 'You have successfully created the recipe!';
+        .post(
+          'https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
+          postData
+        )
+        .subscribe(
+          response => {
+            this.recipeCreated = 'You have successfully created the recipe!';
 
-          setTimeout(() => this.recipeCreated = '', 5000);
-                 
-          return response;
-        }
-      );
+            setTimeout(() => this.recipeCreated = '', 5000);
+                    
+            return response;
+          }
+        );
     } else if (!postData.recipeIngredients.length) {
-      this.errorMessage = 'Need at least one ingredient for the recipe.';
+        this.errorMessage = 'Need at least one ingredient for the recipe.';
 
-      setTimeout(() => this.errorMessage = '', 5000);
+        setTimeout(() => this.errorMessage = '', 5000);
     } else {
-      this.errorMessage = 'Failed to create the recipe. One or more fields are empty.'
+        this.errorMessage = 'Failed to create the recipe. One or more fields are empty.'
 
-      setTimeout(() => this.errorMessage = '', 5000);
+        setTimeout(() => this.errorMessage = '', 5000);
     }
   }
 }

@@ -10,9 +10,9 @@
         
         <div class="row">
             <div class="col-md-3 col-xs-2">
-                <app-recipe-list (theSelectedRecipe)="selectedRecipe = $event"></app-recipe-list>
+                <app-recipe-list ></app-recipe-list>
             </div>
-            
+            <!-- (theSelectedRecipe)="selectedRecipe = $event" -->
             <div class="col-md-9 col-xs-10">
                 <app-recipe-details-ingredients *ngIf="selectedRecipe; else infoText" [recipe]="selectedRecipe"></app-recipe-details-ingredients>
                 <ng-template #infoText>

@@ -8,7 +8,7 @@ import { Recipe } from '../recipe.model';
   styleUrls: ['./recipe-list.component.css']
 })
 export class RecipeListComponent implements OnInit {
-  theSelectedRecipe = new EventEmitter<Recipe>();
+  //theSelectedRecipe = new EventEmitter<Recipe>();
 
   recipes: Recipe[];
 
@@ -34,3 +34,4 @@ export class RecipeListComponent implements OnInit {
     });
   }
 }
+

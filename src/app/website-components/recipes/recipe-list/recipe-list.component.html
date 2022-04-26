@@ -1,6 +1,6 @@
 <!-- left side, recipe list -->
-<div class="row">
-    <div class="col-xs-12" style="overflow: scroll; max-height: 75vh">
+<div class="row card">
+    <div id="leftSideRecipeList" class="col-xs-12">
         <app-recipe-item
             *ngFor="let singleRecipe of recipes"
             [recipe]="singleRecipe"
