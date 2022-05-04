@@ -11,9 +11,11 @@ export class IngredientsListService {
     }
 
     addIngredient(ingredient: Ingredient) {
-        this.ingredients.push(ingredient);
+        if (ingredient.amount > 0) {
+            this.ingredients.push(ingredient);
 
-        this.ingredientsChanged.emit(this.ingredients.slice());
+            this.ingredientsChanged.emit(this.ingredients.slice());
+        }
     }
 
     onDeleteIngredient(ingredientToDelete: Ingredient) {   

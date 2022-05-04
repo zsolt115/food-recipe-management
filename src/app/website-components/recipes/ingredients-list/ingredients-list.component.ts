@@ -25,4 +25,8 @@ export class IngredientsListComponent implements OnInit {
   onDeleteItem(ingredientToDelete: Ingredient) {
     this.ingredientListService.onDeleteIngredient(ingredientToDelete);
   }
+
+  // ngOnDestroy() {
+  //   this.ingredientListService.ingredientsChanged.unsubscribe();
+  // }
 }

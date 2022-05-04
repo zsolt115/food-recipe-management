@@ -11,8 +11,8 @@
         <strong>Warning!</strong> {{ errorMessage | json }}
     </div>
 
-    <div *ngIf="recipeCreated" class="alert show alert-success fade alert-dismissible" style="justify-content: center; text-align: center;">
-        <strong></strong> {{ recipeCreated | json }}
+    <div *ngIf="recipeCreatedSuccessfully" class="alert show alert-success fade alert-dismissible" style="justify-content: center; text-align: center;">
+        <strong></strong> {{ recipeCreatedSuccessfully | json }}
     </div>
     
     <div class="row" style="margin: 50px; color: rgb(212,175,55)">

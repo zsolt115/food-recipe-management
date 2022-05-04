@@ -34,4 +34,3 @@ export class RecipeListComponent implements OnInit {
     });
   }
 }
-

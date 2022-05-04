@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
-import { EditDialogComponent } from '../../edit-dialog/edit-dialog.component';
+import { EditDialogComponent } from '../../../edit-dialog/edit-dialog.component';
 import { Recipe } from '../../recipe.model';
-import { RecipeService } from '../../recipe.service';
+import { RecipeService } from '../../../../services/recipe.service';
 import { RecipeListComponent } from '../recipe-list.component';
 
 @Component({

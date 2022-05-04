@@ -17,16 +17,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthenticationService, private router: Router, private toast: HotToastService) { }
 
-  ngOnInit(): void {
-  }
-
-  get email() {
-    return this.loginForm.get('email');
-  }
-
-  get password() {
-    return this.loginForm.get('password');
-  }
+  ngOnInit(): void {}
 
   submit() {
     if (!this.loginForm.valid) {

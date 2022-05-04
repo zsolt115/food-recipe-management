@@ -9,10 +9,11 @@
     background-size: cover;
 }
 h1 {
-  -webkit-text-stroke: 2px black; /* width and color */
+  -webkit-text-stroke: 2px black;
   font-size: 50px;
   color: white;
 }
+
 .container {
     position: absolute;
     bottom: 0;
@@ -22,15 +23,15 @@ h1 {
 }
 
 #slider-image-1 {
-  background-image: url("../../../images/slider-1.jpg");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/ace-food-recipe-management.appspot.com/o/ace-food-recipes%2Fslider-1.jpg?alt=media&token=00cef42d-090c-4765-b137-d58305c4e4a1");
 }
 
 #slider-image-2 {
-  background-image: url("../../../images/slider-2.jpg");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/ace-food-recipe-management.appspot.com/o/ace-food-recipes%2Fslider-2.jpg?alt=media&token=c7619fb0-e9d3-4115-9ecb-0dafd3adbcef");
 }
 
 #slider-image-3 {
-  background-image: url("../../../images/slider-3.jpg");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/ace-food-recipe-management.appspot.com/o/ace-food-recipes%2Fslider-3.jpg?alt=media&token=05b0ffad-8c20-4b00-b5d6-ce52dd433f82");
 }
 
 .overlay-image {

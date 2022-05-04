@@ -15,7 +15,12 @@
                     <div class="container">
                         <h1 *ngIf="user$ | async as user; else guest">
                             Welcome, {{ 
-                                (user && user.email && user.email.substring(0, user.email.indexOf('@'))) ? user.email.substring(0, user.email.indexOf('@')).toUpperCase() : user.email.toUpperCase()
+                                (
+                                    user && 
+                                    user.email &&
+                                    user.email.substring(0, user.email.indexOf('@'))) ?
+                                    user.email.substring(0, user.email.indexOf('@')).toUpperCase() :
+                                    user.email.toUpperCase()
                             }}!
                         </h1>
                         <p>On this site you can find a few recipes, created by others or you can create your own and share with the other visitors.</p>
@@ -28,7 +33,12 @@
                     <div class="container">
                         <h1 *ngIf="user$ | async as user; else guest">
                             Welcome, {{ 
-                                (user && user.email && user.email.substring(0, user.email.indexOf('@'))) ? user.email.substring(0, user.email.indexOf('@')).toUpperCase() : user.email.toUpperCase()
+                                (
+                                    user &&
+                                    user.email &&
+                                    user.email.substring(0, user.email.indexOf('@'))) ?
+                                    user.email.substring(0, user.email.indexOf('@')).toUpperCase() :
+                                    user.email.toUpperCase()
                             }}!
                         </h1>
                         <p>On this site you can find a few recipes, created by others or you can create your own and share with the other visitors.</p>
@@ -41,7 +51,12 @@
                     <div class="container">
                         <h1 *ngIf="user$ | async as user; else guest">
                             Welcome, {{ 
-                                (user && user.email && user.email.substring(0, user.email.indexOf('@'))) ? user.email.substring(0, user.email.indexOf('@')).toUpperCase() : user.email.toUpperCase()
+                                (
+                                    user &&
+                                    user.email &&
+                                    user.email.substring(0, user.email.indexOf('@'))) ?
+                                    user.email.substring(0, user.email.indexOf('@')).toUpperCase() :
+                                    user.email.toUpperCase()
                             }}!
                         </h1>
                         <p>On this site you can find a few recipes, created by others or you can create your own and share with the other visitors.</p>

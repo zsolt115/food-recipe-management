@@ -18,7 +18,7 @@ export class CreateNewRecipeComponent implements OnInit {
 
   createRecipeForm: FormGroup;
   errorMessage;
-  recipeCreated;
+  recipeCreatedSuccessfully;
 
   constructor(
     private authService: AuthenticationService,
@@ -28,15 +28,15 @@ export class CreateNewRecipeComponent implements OnInit {
       this.createForm();
     }
 
+  ngOnInit(): void {
+  }
+
   createForm() {
     this.createRecipeForm = this.fb.group({
       recipeName: ['', Validators.required],
       recipeDescription: ['', Validators.required],
       recipeImage: ['', Validators.required]
     });
-  }
-
-  ngOnInit(): void {
   }
 
   onCreatePostRecipes() {
@@ -61,13 +61,10 @@ export class CreateNewRecipeComponent implements OnInit {
           'https://ace-food-recipe-management-default-rtdb.europe-west1.firebasedatabase.app/recipes.json',
           postData
         )
-        .subscribe(
-          response => {
-            this.recipeCreated = 'You have successfully created the recipe!';
+        .subscribe(() => {
+            this.recipeCreatedSuccessfully = 'You have successfully created the recipe!';
 
-            setTimeout(() => this.recipeCreated = '', 5000);
-                    
-            return response;
+            setTimeout(() => this.recipeCreatedSuccessfully = '', 5000);
           }
         );
     } else if (!postData.recipeIngredients.length) {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Recipe } from './recipe.model';
-import { RecipeService } from './recipe.service';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'app-recipes',
@@ -22,5 +22,9 @@ export class RecipesComponent implements OnInit {
         this.selectedRecipe = recipe;
       }
     )
+  }
+
+  ngOnDestroy() {
+    this.recipeService.recipeSelected.unsubscribe();
   }
 }

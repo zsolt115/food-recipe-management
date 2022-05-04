@@ -33,13 +33,14 @@ import { IngredientsListService } from './website-components/recipes/ingredients
 import { IngredientActionComponent } from './website-components/recipes/ingredients-list/ingredient-action/ingredient-action.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { RecipeService } from './website-components/recipes/recipe.service';
+import { RecipeService } from './services/recipe.service';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { EditDialogComponent } from './website-components/recipes/edit-dialog/edit-dialog.component';
+import { EditDialogComponent } from './website-components/edit-dialog/edit-dialog.component';
 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -96,6 +97,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
   ],
   bootstrap: [AppComponent],
-  entryComponents: [EditDialogComponent] // the component to be usable as a dialog body, we need to declare it as an entryComponent
+  // entryComponents: [EditDialogComponent] // the component to be usable as a dialog body, we need to declare it as an entryComponent
 })
 export class AppModule { }
